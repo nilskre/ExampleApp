@@ -14,8 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView myTextView = (TextView)findViewById(R.id.textView);
-        myTextView.setText("Test");
+        final TextView myTextView = (TextView)findViewById(R.id.textView);
 
         Button myButton = (Button)findViewById(R.id.button);
         myButton.setOnClickListener(new View.OnClickListener() {
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText myEditText = (EditText)findViewById(R.id.editText);
                 String input = myEditText.getText().toString();
+                myTextView.setText(input);
             }
         });
     }
