@@ -9,24 +9,29 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    public static String INPUT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView myTextView = (TextView)findViewById(R.id.textView);
+        //final TextView textViewInMainActivity = (TextView)findViewById(R.id.textView);
 
         Button myButton = (Button)findViewById(R.id.button);
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentToShowSecondActivity = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(intentToShowSecondActivity);
-                EditText myEditText = (EditText)findViewById(R.id.editText);
-                String input = myEditText.getText().toString();
-                myTextView.setText(input);
+                buttonClicked();
             }
         });
+    }
+
+    private void buttonClicked() {
+        EditText myEditText = (EditText)findViewById(R.id.editText);
+        INPUT = myEditText.getText().toString();
+        Intent intentToShowSecondActivity = new Intent(MainActivity.this, SecondActivity.class);
+        startActivity(intentToShowSecondActivity);
+        //textViewInMainActivity.setText(input);
     }
 }
