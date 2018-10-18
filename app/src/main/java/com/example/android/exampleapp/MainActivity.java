@@ -1,5 +1,6 @@
 package com.example.android.exampleapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intentToShowSecondActivity = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intentToShowSecondActivity);
                 EditText myEditText = (EditText)findViewById(R.id.editText);
                 String input = myEditText.getText().toString();
                 myTextView.setText(input);
